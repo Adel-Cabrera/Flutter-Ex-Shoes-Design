@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ZapatoSizePreview extends StatelessWidget {
@@ -20,7 +21,71 @@ class ZapatoSizePreview extends StatelessWidget {
         child: Column(
           children: <Widget>[
             _ZapatoConSombra(),
+            _ZapatoTallas(),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ZapatoTallas extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 10.0,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          _TallaZapatoCaja(
+            numero: 7,
+          ),
+          _TallaZapatoCaja(
+            numero: 7.5,
+          ),
+          _TallaZapatoCaja(
+            numero: 8,
+          ),
+          _TallaZapatoCaja(
+            numero: 8.5,
+          ),
+          _TallaZapatoCaja(
+            numero: 9,
+          ),
+          _TallaZapatoCaja(
+            numero: 9.5,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TallaZapatoCaja extends StatelessWidget {
+  final double numero;
+
+  _TallaZapatoCaja({this.numero});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      width: 45.0,
+      height: 45.0,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: <BoxShadow>[
+          BoxShadow(),
+        ],
+      ),
+      child: Text(
+        '${numero.toString().replaceAll('.0', '')}',
+        style: TextStyle(
+          color: Color(0xFFF1A23A),
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
